@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace GestionPedidosAPIREST.Models
 {
@@ -13,6 +14,7 @@ namespace GestionPedidosAPIREST.Models
         public decimal? Igv { get; set; }
         public decimal? Total { get; set; }
 
+        [JsonIgnore]
         public virtual Cliente? CodigoClienteNavigation { get; set; }
     }
 }

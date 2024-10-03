@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace GestionPedidosAPIREST.Models
 {
@@ -18,6 +19,7 @@ namespace GestionPedidosAPIREST.Models
         public DateTime? FechaRegistro { get; set; }
         public DateTime? UsuarioRegistro { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<CabeceraPedido> CabeceraPedidos { get; set; }
     }
 }

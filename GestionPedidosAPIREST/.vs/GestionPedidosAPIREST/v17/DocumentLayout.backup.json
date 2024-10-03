@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "D:\\proyectos github\\Sistema_GestionPedido\\GestionPedidosAPIREST\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{82C83DDC-A1B2-4A03-894B-8F8E6BCB7889}|GestionPedidosAPIREST\\GestionPedidosAPIREST.csproj|d:\\proyectos github\\sistema_gestionpedido\\gestionpedidosapirest\\gestionpedidosapirest\\services\\jwtservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82C83DDC-A1B2-4A03-894B-8F8E6BCB7889}|GestionPedidosAPIREST\\GestionPedidosAPIREST.csproj|solutionrelative:gestionpedidosapirest\\services\\jwtservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82C83DDC-A1B2-4A03-894B-8F8E6BCB7889}|GestionPedidosAPIREST\\GestionPedidosAPIREST.csproj|d:\\proyectos github\\sistema_gestionpedido\\gestionpedidosapirest\\gestionpedidosapirest\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82C83DDC-A1B2-4A03-894B-8F8E6BCB7889}|GestionPedidosAPIREST\\GestionPedidosAPIREST.csproj|solutionrelative:gestionpedidosapirest\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82C83DDC-A1B2-4A03-894B-8F8E6BCB7889}|GestionPedidosAPIREST\\GestionPedidosAPIREST.csproj|d:\\proyectos github\\sistema_gestionpedido\\gestionpedidosapirest\\gestionpedidosapirest\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82C83DDC-A1B2-4A03-894B-8F8E6BCB7889}|GestionPedidosAPIREST\\GestionPedidosAPIREST.csproj|solutionrelative:gestionpedidosapirest\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{82C83DDC-A1B2-4A03-894B-8F8E6BCB7889}|GestionPedidosAPIREST\\GestionPedidosAPIREST.csproj|d:\\proyectos github\\sistema_gestionpedido\\gestionpedidosapirest\\gestionpedidosapirest\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82C83DDC-A1B2-4A03-894B-8F8E6BCB7889}|GestionPedidosAPIREST\\GestionPedidosAPIREST.csproj|solutionrelative:gestionpedidosapirest\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "JwtServices.cs",
-              "DocumentMoniker": "D:\\proyectos github\\Sistema_GestionPedido\\GestionPedidosAPIREST\\GestionPedidosAPIREST\\Services\\JwtServices.cs",
-              "RelativeDocumentMoniker": "GestionPedidosAPIREST\\Services\\JwtServices.cs",
-              "ToolTip": "D:\\proyectos github\\Sistema_GestionPedido\\GestionPedidosAPIREST\\GestionPedidosAPIREST\\Services\\JwtServices.cs",
-              "RelativeToolTip": "GestionPedidosAPIREST\\Services\\JwtServices.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAQwDUAAAAJAAAAAAAAAA==",
+              "Title": "ClientesController.cs",
+              "DocumentMoniker": "D:\\proyectos github\\Sistema_GestionPedido\\GestionPedidosAPIREST\\GestionPedidosAPIREST\\Controllers\\ClientesController.cs",
+              "RelativeDocumentMoniker": "GestionPedidosAPIREST\\Controllers\\ClientesController.cs",
+              "ToolTip": "D:\\proyectos github\\Sistema_GestionPedido\\GestionPedidosAPIREST\\GestionPedidosAPIREST\\Controllers\\ClientesController.cs",
+              "RelativeToolTip": "GestionPedidosAPIREST\\Controllers\\ClientesController.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAqwGIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T18:16:10.959Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UsuarioService.cs",
-              "DocumentMoniker": "D:\\proyectos github\\Sistema_GestionPedido\\GestionPedidosAPIREST\\GestionPedidosAPIREST\\Services\\UsuarioService.cs",
-              "RelativeDocumentMoniker": "GestionPedidosAPIREST\\Services\\UsuarioService.cs",
-              "ToolTip": "D:\\proyectos github\\Sistema_GestionPedido\\GestionPedidosAPIREST\\GestionPedidosAPIREST\\Services\\UsuarioService.cs",
-              "RelativeToolTip": "GestionPedidosAPIREST\\Services\\UsuarioService.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAQwDAAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T17:48:06.806Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "D:\\proyectos github\\Sistema_GestionPedido\\GestionPedidosAPIREST\\GestionPedidosAPIREST\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "GestionPedidosAPIREST\\Controllers\\LoginController.cs",
-              "ToolTip": "D:\\proyectos github\\Sistema_GestionPedido\\GestionPedidosAPIREST\\GestionPedidosAPIREST\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "GestionPedidosAPIREST\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAmwDMAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T17:06:41.134Z",
+              "WhenOpened": "2024-10-03T20:21:31.221Z",
               "EditorCaption": ""
             }
           ]
