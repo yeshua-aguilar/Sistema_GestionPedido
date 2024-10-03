@@ -41,6 +41,7 @@ namespace GestionPedidosAPIREST.Controllers
             {
                 _dbcontext.Productos.Add(producto);
                 _dbcontext.SaveChanges();
+
                 return StatusCode(StatusCodes.Status201Created, new { mensaje = "ok", response = producto });
             }
             catch (Exception ex)
