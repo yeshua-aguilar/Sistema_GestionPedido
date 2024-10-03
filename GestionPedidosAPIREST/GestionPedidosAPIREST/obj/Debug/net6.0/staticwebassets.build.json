@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "t9WFiPllHbljbEHrBbadCrsKyy71/DHhb/yh+kp4v8U=",
+  "Source": "GestionPedidosAPIREST",
+  "BasePath": "_content/GestionPedidosAPIREST",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
