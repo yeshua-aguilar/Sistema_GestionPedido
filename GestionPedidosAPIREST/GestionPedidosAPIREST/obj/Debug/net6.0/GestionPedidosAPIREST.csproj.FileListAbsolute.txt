@@ -67,3 +67,6 @@ D:\proyectos github\Sistema_GestionPedido\GestionPedidosAPIREST\GestionPedidosAP
 D:\proyectos github\Sistema_GestionPedido\GestionPedidosAPIREST\GestionPedidosAPIREST\obj\Debug\net6.0\GestionPedidosAPIREST.pdb
 D:\proyectos github\Sistema_GestionPedido\GestionPedidosAPIREST\GestionPedidosAPIREST\obj\Debug\net6.0\GestionPedidosAPIREST.genruntimeconfig.cache
 D:\proyectos github\Sistema_GestionPedido\GestionPedidosAPIREST\GestionPedidosAPIREST\obj\Debug\net6.0\ref\GestionPedidosAPIREST.dll
+D:\proyectos github\Sistema_GestionPedido\GestionPedidosAPIREST\GestionPedidosAPIREST\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\proyectos github\Sistema_GestionPedido\GestionPedidosAPIREST\GestionPedidosAPIREST\bin\Debug\net6.0\Microsoft.Bcl.TimeProvider.dll
+D:\proyectos github\Sistema_GestionPedido\GestionPedidosAPIREST\GestionPedidosAPIREST\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll

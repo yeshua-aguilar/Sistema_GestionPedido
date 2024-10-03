@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using GestionPedidosAPIREST.Models;
+using GestionPedidosAPIREST.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<GestionPedidoContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("cadenaSQL")));
+builder.Services.AddScoped<JwtServices>();
+builder.Services.AddScoped<UsuarioService>();
 
 var app = builder.Build();
 
