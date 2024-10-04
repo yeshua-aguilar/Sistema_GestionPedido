@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestionPedidosAPIREST")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f6f3faf1b8a50b2baad7eeb02d0e32aab6eb84f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f80db8d13dfb1b3a9928ab2e482f9c5d3183efcc")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestionPedidosAPIREST")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestionPedidosAPIREST")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

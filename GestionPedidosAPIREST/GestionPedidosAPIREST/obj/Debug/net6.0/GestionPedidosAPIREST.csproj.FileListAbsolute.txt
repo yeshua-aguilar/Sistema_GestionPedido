@@ -70,3 +70,4 @@ D:\proyectos github\Sistema_GestionPedido\GestionPedidosAPIREST\GestionPedidosAP
 D:\proyectos github\Sistema_GestionPedido\GestionPedidosAPIREST\GestionPedidosAPIREST\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\proyectos github\Sistema_GestionPedido\GestionPedidosAPIREST\GestionPedidosAPIREST\bin\Debug\net6.0\Microsoft.Bcl.TimeProvider.dll
 D:\proyectos github\Sistema_GestionPedido\GestionPedidosAPIREST\GestionPedidosAPIREST\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\proyectos github\Sistema_GestionPedido\GestionPedidosAPIREST\GestionPedidosAPIREST\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

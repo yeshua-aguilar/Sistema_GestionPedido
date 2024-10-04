@@ -4,9 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using GestionPedidosAPIREST.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GestionPedidosAPIREST.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ClientesController : ControllerBase
