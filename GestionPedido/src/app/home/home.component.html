@@ -1,0 +1,48 @@
+<p-toolbar>
+    <div class="p-toolbar-group-start">
+        Home
+    </div>
+    <div class="p-toolbar-group-center">
+
+    </div>
+    <div class="p-toolbar-group-end">
+        <p-button label="Cerrar session" />
+    </div>
+</p-toolbar>
+
+<div class="container mx-auto mt-10">
+    <div class="w-2/3 mx-auto">
+        <p-table
+        [paginator]="true"
+        [rows]="5"
+        >
+            <ng-template pTemplate="caption">
+                <div class="flex align-items-center justify-content-between">
+                    Pedidos
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr class="bg-gray-100">
+                    <th class="px-4 py-2">Código de pedido</th>
+                    <th class="px-4 py-2">Código de cliente</th>
+                    <th class="px-4 py-2">Dirección de entrega</th>
+                    <th class="px-4 py-2">Sub total</th>
+                    <th class="px-4 py-2">Cantidad total</th>
+                    <th class="px-4 py-2">IGV</th>
+                    <th class="px-4 py-2">Total</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td class="px-4 py-2">prueba</td>
+                    <td class="px-4 py-2">prueba</td>
+                    <td class="px-4 py-2">prueba</td>
+                    <td class="px-4 py-2">prueba</td>
+                    <td class="px-4 py-2">0.00</td>
+                    <td class="px-4 py-2">0.00</td>
+                    <td class="px-4 py-2">0.00</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
