@@ -2,7 +2,8 @@ import { Component, OnInit  } from '@angular/core';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import { ApiPedidoService } from '../apipedido.service'; 
+import { ApiPedidoService } from '../apipedido.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ import { ApiPedidoService } from '../apipedido.service';
 export class HomeComponent implements OnInit {
   pedidos: any[] = [];
 
-  constructor(private apiPedidoService: ApiPedidoService) {}
+  constructor(private apiPedidoService: ApiPedidoService, private router: Router) {}
 
   ngOnInit() {
     this.cargarPedidos(); 
@@ -34,6 +35,11 @@ export class HomeComponent implements OnInit {
         console.error('Error al cargar los pedidos', error);
       }
     });
+  }
+
+  cerrarSesion() {
+    localStorage.removeItem('token'); 
+    this.router.navigate(['/login']);
   }
 
 }
