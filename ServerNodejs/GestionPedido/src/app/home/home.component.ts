@@ -4,11 +4,12 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { ApiPedidoService } from '../apipedido.service';
 import { Router } from '@angular/router';
+import { UploadExcelComponent } from '../upload-excel/upload-excel.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ToolbarModule, ButtonModule, TableModule],
+  imports: [ToolbarModule, ButtonModule, TableModule, UploadExcelComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

@@ -1,0 +1,5 @@
+<div class="upload-container">
+    <h3>Cargar Archivo Excel</h3>
+    <input type="file" (change)="onFileSelected($event)" accept=".xlsx, .xls" />
+    <button (click)="onUpload()" [disabled]="!selectedFile">Subir Excel</button>
+</div>

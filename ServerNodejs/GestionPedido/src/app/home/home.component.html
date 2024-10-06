@@ -20,6 +20,9 @@
             <ng-template pTemplate="caption">
                 <div class="flex align-items-center justify-content-between">
                     Pedidos
+                    <div class="flex justify-start ml-auto">
+                        <app-upload-excel></app-upload-excel>
+                    </div>
                 </div>
             </ng-template>
             <ng-template pTemplate="header">
@@ -35,7 +38,7 @@
             </ng-template>
             <ng-template pTemplate="body" let-pedido>
                 <tr>
-                    <td class="px-4 py-2">{{pedido.codigoProducto}}</td>
+                    <td class="px-4 py-2">{{pedido.codigoPedido}}</td>
                     <td class="px-4 py-2">{{pedido.codigoCliente}}</td>
                     <td class="px-4 py-2">{{pedido.direccionEntrega}}</td>
                     <td class="px-4 py-2">{{pedido.subtotal}}</td>

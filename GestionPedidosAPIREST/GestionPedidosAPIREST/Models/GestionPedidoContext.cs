@@ -31,15 +31,15 @@ namespace GestionPedidosAPIREST.Models
         {
             modelBuilder.Entity<CabeceraPedido>(entity =>
             {
-                entity.HasKey(e => e.CodigoProducto)
+                entity.HasKey(e => e.CodigoPedido)
                     .HasName("PK__cabecera__105107A98CE9F478");
 
                 entity.ToTable("cabecera_pedido");
 
-                entity.HasIndex(e => e.CodigoProducto, "UQ__cabecera__105107A8A6F2A173")
+                entity.HasIndex(e => e.CodigoPedido, "UQ__cabecera__105107A8A6F2A173")
                     .IsUnique();
 
-                entity.Property(e => e.CodigoProducto).HasColumnName("codigo_producto");
+                entity.Property(e => e.CodigoPedido).HasColumnName("codigo_pedido");
 
                 entity.Property(e => e.CantidadTotal).HasColumnName("cantidad_total");
 

@@ -59,14 +59,13 @@ namespace GestionPedidosAPIREST.Controllers
             }
         }
 
-        // Obtener detalle de un pedido por ID
         [HttpGet]
-        [Route("detalle/{id}")]
-        public IActionResult Detalle(int id)
+        [Route("detalle/{codigoPedido}")]
+        public IActionResult Detalle(int codigoPedido)
         {
             try
             {
-                var pedido = _dbContext.CabeceraPedidos.Find(id);
+                var pedido = _dbContext.CabeceraPedidos.Find(codigoPedido);
                 if (pedido == null)
                 {
                     return NotFound(new { mensaje = "Pedido no encontrado" });
@@ -79,10 +78,9 @@ namespace GestionPedidosAPIREST.Controllers
             }
         }
 
-        // Actualizar un pedido
         [HttpPatch]
-        [Route("actualizar/{id}")]
-        public IActionResult Actualizar(int id, [FromBody] CabeceraPedido pedido)
+        [Route("actualizar/{codigoPedido}")]
+        public IActionResult Actualizar(int codigoPedido, [FromBody] CabeceraPedido pedido)
         {
             if (pedido == null)
             {
@@ -91,7 +89,7 @@ namespace GestionPedidosAPIREST.Controllers
 
             try
             {
-                var pedidoDB = _dbContext.CabeceraPedidos.Find(id);
+                var pedidoDB = _dbContext.CabeceraPedidos.Find(codigoPedido);
                 if (pedidoDB == null)
                 {
                     return NotFound(new { mensaje = "Pedido no encontrado" });
@@ -115,14 +113,13 @@ namespace GestionPedidosAPIREST.Controllers
             }
         }
 
-        // Eliminar un pedido
         [HttpDelete]
-        [Route("eliminar/{id}")]
-        public IActionResult Eliminar(int id)
+        [Route("eliminar/{codigoPedido}")]
+        public IActionResult Eliminar(int codigoPedido)
         {
             try
             {
-                var pedido = _dbContext.CabeceraPedidos.Find(id);
+                var pedido = _dbContext.CabeceraPedidos.Find(codigoPedido);
                 if (pedido == null)
                 {
                     return NotFound(new { mensaje = "Pedido no encontrado" });
