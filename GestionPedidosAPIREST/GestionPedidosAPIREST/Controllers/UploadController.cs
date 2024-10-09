@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using NPOI.XSSF.UserModel;
-using NPOI.SS.UserModel;  
+using NPOI.SS.UserModel;
 using EFCore.BulkExtensions;
 using GestionPedidosAPIREST.Models;
 using System.Collections.Generic;
@@ -45,22 +45,24 @@ namespace GestionPedidosAPIREST.Controllers
                     ISheet sheetClientes = workbook.GetSheet("Clientes");
                     var clientes = ProcesarClientes(sheetClientes);
 
+                    _context.BulkInsert(clientes);
+
                     // Procesar la hoja de productos
                     ISheet sheetProductos = workbook.GetSheet("Productos");
                     var productos = ProcesarProductos(sheetProductos);
+
+                    _context.BulkInsert(productos);
 
                     // Procesar la hoja de cabecera pedidos
                     ISheet sheetCabeceraPedidos = workbook.GetSheet("CabeceraPedidos");
                     var cabeceraPedidos = ProcesarCabeceraPedidos(sheetCabeceraPedidos);
 
+                    _context.BulkInsert(cabeceraPedidos);
+
                     // Procesar la hoja de detalle pedidos
                     ISheet sheetDetallePedidos = workbook.GetSheet("DetallePedidos");
                     var detallePedidos = ProcesarDetallePedidos(sheetDetallePedidos);
-
-                    // Guardar todo en la base de datos con inserciones masivas
-                    _context.BulkInsert(clientes);
-                    _context.BulkInsert(productos);
-                    _context.BulkInsert(cabeceraPedidos);
+               
                     _context.BulkInsert(detallePedidos);
 
                     return Ok(new { mensaje = "Datos cargados exitosamente" });
@@ -151,18 +153,45 @@ namespace GestionPedidosAPIREST.Controllers
                 IRow row = sheet.GetRow(i);
                 if (row == null) continue;
 
+                var codigoPedido = Convert.ToInt32(row.GetCell(0).ToString());
+                var numeroLinea = Convert.ToInt32(row.GetCell(1).ToString());
+                var codigoProducto = Convert.ToInt32(row.GetCell(2).ToString());
+                var cantidad = Convert.ToInt64(row.GetCell(3).ToString());
+
+                // Obtener el producto desde la base de datos
+                var producto = _context.Productos.Find(codigoProducto);
+                if (producto == null)
+                {
+                    throw new Exception($"El producto con código {codigoProducto} no existe.");
+                }
+
+                // Calcular el total
+                var total = producto.PrecioUnitario * cantidad;
+
+                // Verificar si el detalle con el mismo código de pedido y número de línea ya existe
+                var existingDetail = _context.DetallePedidos
+                    .Any(dp => dp.CodigoPedido == codigoPedido && dp.NumeroLinea == numeroLinea);
+
+                if (existingDetail)
+                {
+                    throw new Exception($"El detalle con código de pedido {codigoPedido} y número de línea {numeroLinea} ya existe.");
+                }
+
                 var detallePedido = new DetallePedido
                 {
-                    CodigoPedido = Convert.ToInt32(row.GetCell(0).ToString()),
-                    NumeroLinea = Convert.ToInt32(row.GetCell(1).ToString()),
-                    CodigoProducto = Convert.ToInt32(row.GetCell(2).ToString()),
-                    Cantidad = Convert.ToInt64(row.GetCell(3).ToString()),
-                    Total = Convert.ToDecimal(row.GetCell(4).ToString())
+                    CodigoPedido = codigoPedido,
+                    NumeroLinea = numeroLinea, // Ahora se asigna directamente desde el Excel
+                    CodigoProducto = codigoProducto,
+                    Cantidad = cantidad,
+                    Total = total
                 };
                 detallePedidos.Add(detallePedido);
             }
 
             return detallePedidos;
         }
+
+
+
     }
 }

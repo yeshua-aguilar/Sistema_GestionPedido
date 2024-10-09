@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace GestionPedidosAPIREST.Models
@@ -13,7 +14,9 @@ namespace GestionPedidosAPIREST.Models
         public decimal? Total { get; set; }
 
         [JsonIgnore]
-        public virtual CabeceraPedido CodigoPedidoNavigation { get; set; }
+        public virtual CabeceraPedido CodigoPedidoNavigation { get; set; } = null!;
+
+        [JsonIgnore]
         public virtual Producto? CodigoProductoNavigation { get; set; }
     }
 }

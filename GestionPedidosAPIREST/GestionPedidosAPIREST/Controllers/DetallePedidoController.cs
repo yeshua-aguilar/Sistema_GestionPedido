@@ -1,4 +1,5 @@
-﻿using GestionPedidosAPIREST.Models;
+﻿using GestionPedidosAPIREST.DTO;
+using GestionPedidosAPIREST.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,38 +32,61 @@ namespace GestionPedidosAPIREST.Controllers
             }
         }
 
-        // Crear nuevos detalles de pedido
+        // Crear un nuevo detalle de pedido
         [HttpPost]
         [Route("crear")]
-        public IActionResult Crear([FromBody] List<DetallePedido> detalles)
+        public IActionResult Crear([FromBody] DetallePedidoDTO detalleDto)
         {
-            if (detalles == null || detalles.Count == 0)
+            if (detalleDto == null)
             {
-                return BadRequest(new { mensaje = "La lista de detalles no puede ser nula o vacía." });
+                return BadRequest(new { mensaje = "El detalle no puede ser nulo." });
             }
 
             try
             {
-                foreach (var detalle in detalles)
+                // Obtener el producto desde la base de datos usando el código del producto
+                var producto = _dbContext.Productos.Find(detalleDto.CodigoProducto);
+                if (producto == null)
                 {
-                    var ultimoNumeroLinea = _dbContext.DetallePedidos
-                        .Where(dp => dp.CodigoPedido == detalle.CodigoPedido)
-                        .OrderByDescending(dp => dp.NumeroLinea)
-                        .Select(dp => dp.NumeroLinea)
-                        .FirstOrDefault();
-
-                    detalle.NumeroLinea = ultimoNumeroLinea + 1; // Asignar el siguiente número de línea
-                    _dbContext.DetallePedidos.Add(detalle);
+                    return BadRequest(new { mensaje = "El producto no existe." });
                 }
 
-                _dbContext.SaveChanges();
-                return StatusCode(StatusCodes.Status201Created, new { mensaje = "Detalles de pedido creados", response = detalles });
+                // Calcular el total multiplicando el precio unitario del producto por la cantidad
+                var total = producto.PrecioUnitario * detalleDto.Cantidad;
+
+                // Crear la entidad DetallePedido a partir del DTO
+                var detalle = new DetallePedido
+                {
+                    CodigoPedido = detalleDto.CodigoPedido,
+                    CodigoProducto = detalleDto.CodigoProducto,
+                    Cantidad = detalleDto.Cantidad,
+                    Total = total // Asignar el total calculado
+                };
+
+                // Obtener el último número de línea para este pedido
+                var ultimoNumeroLinea = _dbContext.DetallePedidos
+                    .Where(dp => dp.CodigoPedido == detalle.CodigoPedido)
+                    .OrderByDescending(dp => dp.NumeroLinea)
+                    .Select(dp => dp.NumeroLinea)
+                    .FirstOrDefault();
+
+                detalle.NumeroLinea = ultimoNumeroLinea + 1; // Asignar el siguiente número de línea
+
+                _dbContext.DetallePedidos.Add(detalle);
+
+                _dbContext.SaveChanges(); // Guardar cambios en la base de datos
+                return StatusCode(StatusCodes.Status201Created, new { mensaje = "Detalle de pedido creado", response = detalle });
             }
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = ex.Message });
             }
         }
+
+
+
+
+
 
         // Obtener detalles de un pedido específico
         [HttpGet]

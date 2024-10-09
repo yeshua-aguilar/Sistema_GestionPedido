@@ -12,11 +12,11 @@ namespace GestionPedidosAPIREST.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class CabederaPedidoController : ControllerBase
+    public class CabeceraPedidoController : ControllerBase
     {
         private readonly GestionPedidoContext _dbContext;
 
-        public CabederaPedidoController(GestionPedidoContext dbContext)
+        public CabeceraPedidoController(GestionPedidoContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -131,6 +131,21 @@ namespace GestionPedidosAPIREST.Controllers
                 _dbContext.CabeceraPedidos.Remove(pedido);
                 _dbContext.SaveChanges();
                 return Ok(new { mensaje = "Pedido eliminado" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = ex.Message });
+            }
+        }
+
+        [HttpPost]
+        [Route("calcular")]
+        public IActionResult CalcularValores()
+        {
+            try
+            {
+                _dbContext.Database.ExecuteSqlRaw("EXEC CalcularValoresCabeceraPedido");
+                return Ok(new { mensaje = "Valores calculados y actualizados correctamente." });
             }
             catch (Exception ex)
             {

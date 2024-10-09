@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "GestionPedidosAPIREST.Controllers.CabederaPedidoController",
+    "ContainingType": "GestionPedidosAPIREST.Controllers.CabeceraPedidoController",
     "Method": "Actualizar",
-    "RelativePath": "api/CabederaPedido/actualizar/{codigoPedido}",
+    "RelativePath": "api/CabeceraPedido/actualizar/{codigoPedido}",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
@@ -21,9 +21,19 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "GestionPedidosAPIREST.Controllers.CabederaPedidoController",
+    "ContainingType": "GestionPedidosAPIREST.Controllers.CabeceraPedidoController",
+    "Method": "CalcularValores",
+    "RelativePath": "api/CabeceraPedido/calcular",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestionPedidosAPIREST.Controllers.CabeceraPedidoController",
     "Method": "Crear",
-    "RelativePath": "api/CabederaPedido/crear",
+    "RelativePath": "api/CabeceraPedido/crear",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -37,9 +47,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "GestionPedidosAPIREST.Controllers.CabederaPedidoController",
+    "ContainingType": "GestionPedidosAPIREST.Controllers.CabeceraPedidoController",
     "Method": "Detalle",
-    "RelativePath": "api/CabederaPedido/detalle/{codigoPedido}",
+    "RelativePath": "api/CabeceraPedido/detalle/{codigoPedido}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -53,9 +63,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "GestionPedidosAPIREST.Controllers.CabederaPedidoController",
+    "ContainingType": "GestionPedidosAPIREST.Controllers.CabeceraPedidoController",
     "Method": "Eliminar",
-    "RelativePath": "api/CabederaPedido/eliminar/{codigoPedido}",
+    "RelativePath": "api/CabeceraPedido/eliminar/{codigoPedido}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -69,9 +79,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "GestionPedidosAPIREST.Controllers.CabederaPedidoController",
+    "ContainingType": "GestionPedidosAPIREST.Controllers.CabeceraPedidoController",
     "Method": "Lista",
-    "RelativePath": "api/CabederaPedido/lista",
+    "RelativePath": "api/CabeceraPedido/lista",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -192,8 +202,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "detalles",
-        "Type": "System.Collections.Generic.List\u00601[[GestionPedidosAPIREST.Models.DetallePedido, GestionPedidosAPIREST, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Name": "detalleDto",
+        "Type": "GestionPedidosAPIREST.DTO.DetallePedidoDTO",
         "IsRequired": true
       }
     ],
