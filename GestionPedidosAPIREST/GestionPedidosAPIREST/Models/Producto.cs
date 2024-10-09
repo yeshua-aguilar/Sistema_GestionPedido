@@ -16,6 +16,7 @@ namespace GestionPedidosAPIREST.Models
         public decimal? PrecioUnitario { get; set; }
         public string? Moneda { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<DetallePedido> DetallePedidos { get; set; }
     }
 }

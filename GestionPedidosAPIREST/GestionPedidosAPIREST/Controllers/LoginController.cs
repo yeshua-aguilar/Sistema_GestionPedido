@@ -37,7 +37,7 @@ namespace GestionPedidosAPIREST.Controllers
                     return Unauthorized("Usuario no encontrado");
                 }
 
-                Console.WriteLine($"Usuario encontrado: {usuario.usuario}");
+                Console.WriteLine($"Usuario encontrado: {usuario.Usuario1}");
 
                 if (!_usuarioService.VerifyPassword(usuario, request.Password))
                 {
@@ -49,7 +49,7 @@ namespace GestionPedidosAPIREST.Controllers
 
                 var claims = new[]
                 {
-                    new Claim(ClaimTypes.Name, usuario.usuario),
+                    new Claim(ClaimTypes.Name, usuario.Usuario1),
                     new Claim(ClaimTypes.NameIdentifier, usuario.CodigoUsuario.ToString()),
                     new Claim(ClaimTypes.GivenName, usuario.Nombres)
                 };

@@ -12,11 +12,11 @@ namespace GestionPedidosAPIREST.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class PedidosController : ControllerBase
+    public class CabederaPedidoController : ControllerBase
     {
         private readonly GestionPedidoContext _dbContext;
 
-        public PedidosController(GestionPedidoContext dbContext)
+        public CabederaPedidoController(GestionPedidoContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -28,7 +28,10 @@ namespace GestionPedidosAPIREST.Controllers
         {
             try
             {
-                var pedidos = _dbContext.CabeceraPedidos.ToList();
+                var pedidos = _dbContext.CabeceraPedidos
+                    .Include(cp => cp.DetallePedidos)
+                    .ToList();
+
                 return Ok(new { mensaje = "ok", response = pedidos });
             }
             catch (Exception ex)

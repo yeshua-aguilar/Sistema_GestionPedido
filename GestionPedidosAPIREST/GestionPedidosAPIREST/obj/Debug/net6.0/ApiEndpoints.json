@@ -1,5 +1,84 @@
 [
   {
+    "ContainingType": "GestionPedidosAPIREST.Controllers.CabederaPedidoController",
+    "Method": "Actualizar",
+    "RelativePath": "api/CabederaPedido/actualizar/{codigoPedido}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "codigoPedido",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pedido",
+        "Type": "GestionPedidosAPIREST.Models.CabeceraPedido",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestionPedidosAPIREST.Controllers.CabederaPedidoController",
+    "Method": "Crear",
+    "RelativePath": "api/CabederaPedido/crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pedido",
+        "Type": "GestionPedidosAPIREST.Models.CabeceraPedido",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestionPedidosAPIREST.Controllers.CabederaPedidoController",
+    "Method": "Detalle",
+    "RelativePath": "api/CabederaPedido/detalle/{codigoPedido}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "codigoPedido",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestionPedidosAPIREST.Controllers.CabederaPedidoController",
+    "Method": "Eliminar",
+    "RelativePath": "api/CabederaPedido/eliminar/{codigoPedido}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "codigoPedido",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestionPedidosAPIREST.Controllers.CabederaPedidoController",
+    "Method": "Lista",
+    "RelativePath": "api/CabederaPedido/lista",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GestionPedidosAPIREST.Controllers.ClientesController",
     "Method": "Actualizar",
     "RelativePath": "api/Clientes/actualizar/{codigoCliente}",
@@ -79,6 +158,95 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "GestionPedidosAPIREST.Controllers.DetallePedidoController",
+    "Method": "Actualizar",
+    "RelativePath": "api/DetallePedido/actualizar/{codigoPedido}/{numeroLinea}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "codigoPedido",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "numeroLinea",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "detalle",
+        "Type": "GestionPedidosAPIREST.Models.DetallePedido",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestionPedidosAPIREST.Controllers.DetallePedidoController",
+    "Method": "Crear",
+    "RelativePath": "api/DetallePedido/crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "detalles",
+        "Type": "System.Collections.Generic.List\u00601[[GestionPedidosAPIREST.Models.DetallePedido, GestionPedidosAPIREST, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestionPedidosAPIREST.Controllers.DetallePedidoController",
+    "Method": "Detalle",
+    "RelativePath": "api/DetallePedido/detalle/{codigoPedido}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "codigoPedido",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestionPedidosAPIREST.Controllers.DetallePedidoController",
+    "Method": "Eliminar",
+    "RelativePath": "api/DetallePedido/eliminar/{codigoPedido}/{numeroLinea}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "codigoPedido",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "numeroLinea",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestionPedidosAPIREST.Controllers.DetallePedidoController",
+    "Method": "Lista",
+    "RelativePath": "api/DetallePedido/lista",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GestionPedidosAPIREST.Controllers.LoginController",
     "Method": "Login",
     "RelativePath": "api/Login",
@@ -92,85 +260,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GestionPedidosAPIREST.Controllers.PedidosController",
-    "Method": "Actualizar",
-    "RelativePath": "api/Pedidos/actualizar/{codigoPedido}",
-    "HttpMethod": "PATCH",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "codigoPedido",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "pedido",
-        "Type": "GestionPedidosAPIREST.Models.CabeceraPedido",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GestionPedidosAPIREST.Controllers.PedidosController",
-    "Method": "Crear",
-    "RelativePath": "api/Pedidos/crear",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "pedido",
-        "Type": "GestionPedidosAPIREST.Models.CabeceraPedido",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GestionPedidosAPIREST.Controllers.PedidosController",
-    "Method": "Detalle",
-    "RelativePath": "api/Pedidos/detalle/{codigoPedido}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "codigoPedido",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GestionPedidosAPIREST.Controllers.PedidosController",
-    "Method": "Eliminar",
-    "RelativePath": "api/Pedidos/eliminar/{codigoPedido}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "codigoPedido",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GestionPedidosAPIREST.Controllers.PedidosController",
-    "Method": "Lista",
-    "RelativePath": "api/Pedidos/lista",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {

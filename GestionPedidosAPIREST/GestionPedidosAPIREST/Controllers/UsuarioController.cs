@@ -7,7 +7,6 @@ using System.Text;
 
 namespace GestionPedidosAPIREST.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
@@ -79,7 +78,7 @@ namespace GestionPedidosAPIREST.Controllers
             {
                 return NotFound();
             }
-            usuarioToUpdate.usuario = usuario.usuario;
+            usuarioToUpdate.Usuario1 = usuario.Usuario1;
             usuarioToUpdate.Nombres = usuario.Nombres;
             usuarioToUpdate.Clave = usuario.Clave;
             usuarioToUpdate.EstadoSession = usuario.EstadoSession;

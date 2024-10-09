@@ -18,7 +18,7 @@ namespace GestionPedidosAPIREST.Services
 
         public Usuario GetUsuarioByUsername(string usuario)
         {
-            return _db.Usuarios.FirstOrDefault(u => u.usuario == usuario);
+            return _db.Usuarios.FirstOrDefault(u => u.Usuario1 == usuario);
         }
 
         public List<Usuario> GetUsuarios()

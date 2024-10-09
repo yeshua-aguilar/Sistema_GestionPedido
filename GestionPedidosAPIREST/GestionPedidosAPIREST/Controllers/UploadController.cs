@@ -153,10 +153,11 @@ namespace GestionPedidosAPIREST.Controllers
 
                 var detallePedido = new DetallePedido
                 {
-                    NumeroLinea = Convert.ToInt32(row.GetCell(0).ToString()),
-                    CodigoProducto = Convert.ToInt32(row.GetCell(1).ToString()),
-                    Cantidad = Convert.ToInt64(row.GetCell(2).ToString()),
-                    Total = Convert.ToDecimal(row.GetCell(3).ToString())
+                    CodigoPedido = Convert.ToInt32(row.GetCell(0).ToString()),
+                    NumeroLinea = Convert.ToInt32(row.GetCell(1).ToString()),
+                    CodigoProducto = Convert.ToInt32(row.GetCell(2).ToString()),
+                    Cantidad = Convert.ToInt64(row.GetCell(3).ToString()),
+                    Total = Convert.ToDecimal(row.GetCell(4).ToString())
                 };
                 detallePedidos.Add(detallePedido);
             }

@@ -32,11 +32,11 @@ namespace GestionPedidosAPIREST.Models
             modelBuilder.Entity<CabeceraPedido>(entity =>
             {
                 entity.HasKey(e => e.CodigoPedido)
-                    .HasName("PK__cabecera__105107A98CE9F478");
+                    .HasName("PK__cabecera__BBD0C51B5D2426BF");
 
                 entity.ToTable("cabecera_pedido");
 
-                entity.HasIndex(e => e.CodigoPedido, "UQ__cabecera__105107A8A6F2A173")
+                entity.HasIndex(e => e.CodigoPedido, "UQ__cabecera__BBD0C51A9841A594")
                     .IsUnique();
 
                 entity.Property(e => e.CodigoPedido).HasColumnName("codigo_pedido");
@@ -46,47 +46,47 @@ namespace GestionPedidosAPIREST.Models
                 entity.Property(e => e.CodigoCliente).HasColumnName("codigo_cliente");
 
                 entity.Property(e => e.DireccionEntrega)
-                    .HasMaxLength(1)
+                    .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("direccion_entrega");
 
                 entity.Property(e => e.Igv)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("decimal(20, 2)")
                     .HasColumnName("igv");
 
                 entity.Property(e => e.Subtotal)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("decimal(20, 2)")
                     .HasColumnName("subtotal");
 
                 entity.Property(e => e.Total)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("decimal(20, 2)")
                     .HasColumnName("total");
 
                 entity.HasOne(d => d.CodigoClienteNavigation)
                     .WithMany(p => p.CabeceraPedidos)
                     .HasForeignKey(d => d.CodigoCliente)
-                    .HasConstraintName("FK__cabecera___codig__6A30C649");
+                    .HasConstraintName("FK__cabecera___codig__3587F3E0");
             });
 
             modelBuilder.Entity<Cliente>(entity =>
             {
                 entity.HasKey(e => e.CodigoCliente)
-                    .HasName("PK__cliente__4D182E8D7C396CF3");
+                    .HasName("PK__cliente__4D182E8DDDBE5463");
 
                 entity.ToTable("cliente");
 
-                entity.HasIndex(e => e.CodigoCliente, "UQ__cliente__4D182E8C876B61E9")
+                entity.HasIndex(e => e.CodigoCliente, "UQ__cliente__4D182E8CBB0AD63E")
                     .IsUnique();
 
                 entity.Property(e => e.CodigoCliente).HasColumnName("codigo_cliente");
 
                 entity.Property(e => e.DireccionEntrega)
-                    .HasMaxLength(1)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("direccion_entrega");
 
                 entity.Property(e => e.DireccionFiscal)
-                    .HasMaxLength(1)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("direccion_fiscal");
 
@@ -95,7 +95,7 @@ namespace GestionPedidosAPIREST.Models
                     .HasColumnName("fecha_registro");
 
                 entity.Property(e => e.RazonSocial)
-                    .HasMaxLength(1)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("razon_social");
 
@@ -109,16 +109,11 @@ namespace GestionPedidosAPIREST.Models
             modelBuilder.Entity<DetallePedido>(entity =>
             {
                 entity.HasKey(e => new { e.CodigoPedido, e.NumeroLinea })
-                    .HasName("PK__detalle___E14C76E3901D8171");
+                    .HasName("PK__detalle___E14C76E36F0D07D5");
 
                 entity.ToTable("detalle_pedido");
 
-                entity.HasIndex(e => e.CodigoPedido, "UQ__detalle___BBD0C51AE48E4FA4")
-                    .IsUnique();
-
-                entity.Property(e => e.CodigoPedido)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("codigo_pedido");
+                entity.Property(e => e.CodigoPedido).HasColumnName("codigo_pedido");
 
                 entity.Property(e => e.NumeroLinea).HasColumnName("numero_linea");
 
@@ -127,56 +122,62 @@ namespace GestionPedidosAPIREST.Models
                 entity.Property(e => e.CodigoProducto).HasColumnName("codigo_producto");
 
                 entity.Property(e => e.Total)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("decimal(20, 2)")
                     .HasColumnName("total");
+
+                entity.HasOne(d => d.CodigoPedidoNavigation)
+                    .WithMany(p => p.DetallePedidos)
+                    .HasForeignKey(d => d.CodigoPedido)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__detalle_p__codig__37703C52");
 
                 entity.HasOne(d => d.CodigoProductoNavigation)
                     .WithMany(p => p.DetallePedidos)
                     .HasForeignKey(d => d.CodigoProducto)
-                    .HasConstraintName("FK__detalle_p__codig__6B24EA82");
+                    .HasConstraintName("FK__detalle_p__codig__367C1819");
             });
 
             modelBuilder.Entity<Producto>(entity =>
             {
                 entity.HasKey(e => e.CodigoProducto)
-                    .HasName("PK__producto__105107A984EDC8B1");
+                    .HasName("PK__producto__105107A9CE06010B");
 
                 entity.ToTable("productos");
 
-                entity.HasIndex(e => e.CodigoProducto, "UQ__producto__105107A8E1B5D7AE")
+                entity.HasIndex(e => e.CodigoProducto, "UQ__producto__105107A8FFF4F761")
                     .IsUnique();
 
                 entity.Property(e => e.CodigoProducto).HasColumnName("codigo_producto");
 
                 entity.Property(e => e.DescripcionProducto)
-                    .HasMaxLength(1)
+                    .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("descripcion_producto");
 
                 entity.Property(e => e.Moneda)
-                    .HasMaxLength(1)
+                    .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("moneda");
 
                 entity.Property(e => e.PrecioUnitario)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("decimal(20, 2)")
                     .HasColumnName("precio_unitario");
             });
 
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasKey(e => e.CodigoUsuario)
-                    .HasName("PK__usuarios__37F064A0CB4151A8");
+                    .HasName("PK__usuarios__37F064A010CCAA07");
 
                 entity.ToTable("usuarios");
 
-                entity.HasIndex(e => e.CodigoUsuario, "UQ__usuarios__37F064A1CCF36A42")
+                entity.HasIndex(e => e.CodigoUsuario, "UQ__usuarios__37F064A153DD9F63")
                     .IsUnique();
 
                 entity.Property(e => e.CodigoUsuario).HasColumnName("codigo_usuario");
 
                 entity.Property(e => e.Clave)
-                    .HasMaxLength(1)
+                    .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("clave");
 
@@ -185,12 +186,12 @@ namespace GestionPedidosAPIREST.Models
                     .HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.FotoUsuario)
-                    .HasMaxLength(1)
+                    .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("foto_usuario");
 
                 entity.Property(e => e.Nombres)
-                    .HasMaxLength(1)
+                    .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("nombres");
 
@@ -198,8 +199,8 @@ namespace GestionPedidosAPIREST.Models
                     .HasColumnType("date")
                     .HasColumnName("ultima_fecha");
 
-                entity.Property(e => e.usuario)
-                    .HasMaxLength(1)
+                entity.Property(e => e.Usuario1)
+                    .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("usuario");
             });

@@ -6,6 +6,11 @@ namespace GestionPedidosAPIREST.Models
 {
     public partial class CabeceraPedido
     {
+        public CabeceraPedido()
+        {
+            DetallePedidos = new HashSet<DetallePedido>();
+        }
+
         public int CodigoPedido { get; set; }
         public int? CodigoCliente { get; set; }
         public string? DireccionEntrega { get; set; }
@@ -16,5 +21,7 @@ namespace GestionPedidosAPIREST.Models
 
         [JsonIgnore]
         public virtual Cliente? CodigoClienteNavigation { get; set; }
+
+        public virtual ICollection<DetallePedido> DetallePedidos { get; set; }
     }
 }
